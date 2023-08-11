@@ -4,6 +4,9 @@ const YouTubeFrame = ({ videoUrl }) => {
   const playerRef = useRef(null);
   const [videoId, setVideoId] = useState(null);
 
+  const screenWidth = window.innerWidth; // Get the width of the screen
+  const widthInPixels = screenWidth * 0.7; 
+  const heightInPixels = widthInPixels * 0.6; // 16:9 aspect ratio
   useEffect(() => {
     const extractVideoId = (url) => {
       const videoIdRegex =
@@ -25,8 +28,8 @@ const YouTubeFrame = ({ videoUrl }) => {
     if (videoId) {
       const onYouTubeIframeAPIReady = () => {
         playerRef.current = new window.YT.Player("youtube-player", {
-          height: "390",
-          width: "640",
+          height: heightInPixels,
+          width: widthInPixels,
           videoId: videoId,
         });
       };

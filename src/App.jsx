@@ -6,7 +6,7 @@ import VideoDetail from "./pages/Video/Details.jsx";
 function App() {
   return (
     <Router>
-      <div className="App bg-gray-700 min-h-screen min-w-screen">
+      <div className="App bg-zinc-900 min-h-screen min-w-screen font-josefin-sans">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

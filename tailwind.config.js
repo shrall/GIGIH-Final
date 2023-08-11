@@ -3,6 +3,26 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        "josefin-sans": ["Josefin Sans", "sans-serif"],
+      },
+      width: {
+        "screen-25": "25vw",
+        "screen-30": "30vw",
+        "screen-35": "35vw",
+        "screen-40": "40vw",
+        "screen-45": "45vw",
+        "screen-50": "50vw",
+        "screen-55": "55vw",
+        "screen-60": "60vw",
+        "screen-65": "65vw",
+        "screen-70": "70vw",
+        "screen-75": "75vw",
+        "screen-80": "80vw",
+        "screen-85": "85vw",
+        "screen-90": "90vw",
+        "screen-95": "95vw",
+      },
       height: {
         "screen-25": "25vh",
         "screen-30": "30vh",

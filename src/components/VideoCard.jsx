@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function VideoCard({ video }) {
   return (
     <Link key={video.id} to={`/video/${video.id}`}>
-      <div className="bg-gray-800 rounded-lg shadow-lg p-4 relative hover:scale-110 transition-all group">
+      <div className="bg-zinc-800 rounded-lg shadow-lg p-4 relative hover:scale-110 transition-all group">
         <div className="flex flex-col gap-2">
           <div className="relative">
             <img
