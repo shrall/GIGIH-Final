@@ -63,8 +63,8 @@ function VideoDetail() {
   return (
     <div className="mx-auto text-white">
       {!isLoading && (
-        <div className="flex justify-end">
-          <div className="flex flex-col w-full min-w-xl max-w-xl px-8 items-start justify-center gap-2 bg-black relative">
+        <div className="flex flex-col-reverse lg:flex-row justify-end gap-2 lg:gap-0">
+          <div className="flex flex-col w-full min-w-xl max-w-xl px-8 items-start justify-center gap-2 bg-transparent lg:bg-black relative">
             <div className="text-3xl">{video.title}</div>
             <div className="text-xl">{video.views} Views</div>
             <hr className="border border-white w-full" />
@@ -96,7 +96,7 @@ function VideoDetail() {
                 <ProductCard key={i} product={product} />
               ))}
             </div>
-            <div className="w-96 h-full bg-gradient-to-r from-black to-transparent absolute top-0 -right-96 pointer-events-none"></div>
+            <div className="hidden lg:block w-96 h-full bg-gradient-to-r from-black to-transparent absolute top-0 -right-96 pointer-events-none"></div>
           </div>
           <YoutubeFrame videoUrl={video.youtube_url} />
         </div>

@@ -5,8 +5,14 @@ const YouTubeFrame = ({ videoUrl }) => {
   const [videoId, setVideoId] = useState(null);
 
   const screenWidth = window.innerWidth; // Get the width of the screen
-  const widthInPixels = screenWidth * 0.7; 
-  const heightInPixels = widthInPixels * 0.6; // 16:9 aspect ratio
+  let widthInPixels = screenWidth * 0.7;
+  let heightInPixels = widthInPixels * 0.6; // 16:9 aspect ratio
+
+  // Check if it's mobile and set width and height to full screen width
+  if (screenWidth <= 768) {
+    widthInPixels = screenWidth;
+    heightInPixels = widthInPixels * 0.8; // 16:9 aspect ratio
+  }
   useEffect(() => {
     const extractVideoId = (url) => {
       const videoIdRegex =
