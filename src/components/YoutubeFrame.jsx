@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const YouTubeFrame = ({ videoUrl }) => {
-  const playerRef = useRef(null);
   const [videoId, setVideoId] = useState(null);
 
   const screenWidth = window.innerWidth; // Get the width of the screen
@@ -30,30 +29,17 @@ const YouTubeFrame = ({ videoUrl }) => {
     setVideoId(extractedVideoId);
   }, [videoUrl]);
 
-  useEffect(() => {
-    if (videoId) {
-      const onYouTubeIframeAPIReady = () => {
-        playerRef.current = new window.YT.Player("youtube-player", {
-          height: heightInPixels,
-          width: widthInPixels,
-          videoId: videoId,
-        });
-      };
-
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-
-      return () => {
-        window.onYouTubeIframeAPIReady = null;
-      };
-    }
-  }, [videoId]);
-
-  return <div id="youtube-player"></div>;
+  return <div className="video-responsive">
+    <iframe
+      width={widthInPixels}
+      height={heightInPixels}
+      src={`https://www.youtube.com/embed/${videoId}`}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      title="Embedded youtube"
+    />
+  </div>;
 };
 
 export default YouTubeFrame;
